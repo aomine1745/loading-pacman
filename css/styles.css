@@ -1,0 +1,85 @@
+@import url("https://fonts.googleapis.com/css?family=Delius+Unicase");
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body{
+	font-family: "Delius Unicase", cursive;
+}
+.loader{
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	text-align: center;
+	flex-direction: column;
+	background: #00ACC1;
+	justify-content: center;
+	align-items: center;
+	transition: .5s;
+	position: fixed;
+	top: 0;
+}
+.loader p{
+	text-transform: lowercase;
+	color: #fff;
+	transform: translate(10px, 25px);
+}
+.loading {
+	position: relative;
+	border-radius: 50%;
+	width: 4px;
+	height: 4px;
+	background: #fff;
+	animation-name: pacmanDot;
+	transform: translateX(14px);
+}
+.loading::before, .loading::after {
+	content: '';
+	position: absolute;
+	border-radius: 50%;
+	border: 14px solid #fff;
+	border-right-color: transparent;
+	top: -12px;
+	left: -24px;
+}
+.loading, .loading::before, .loading::after {
+	animation-duration: 0.5s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+}
+.loading::before {
+	animation-name: upperJaw;
+}
+.loading::after {
+	animation-name: lowerJaw;
+}
+@keyframes pacmanDot {
+	0%, 50% {
+		background: #fff;
+	}
+	51%, 100% {
+		background: none;
+	}
+	0%, 100% {
+		-webkit-transform: translateX(19px);
+		transform: translateX(19px);
+	}
+	50% {
+		-webkit-transform: translateX(14px);
+		transform: translateX(14px);
+	}
+}
+
+@keyframes upperJaw {
+	50% {
+		-webkit-transform: rotate(50deg) translate(2px, -2px);
+		transform: rotate(50deg) translate(2px, -2px);
+	}
+}
+@keyframes lowerJaw {
+	50% {
+		-webkit-transform: rotate(-50deg) translate(2px, 2px);
+		transform: rotate(-50deg) translate(2px, 2px);
+	}
+}
